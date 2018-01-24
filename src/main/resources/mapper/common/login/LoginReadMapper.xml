@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.spring.web.common.login.mapper.LoginReadMapper">
+  <select id="getUserDetails" resultType="customUserDetails" parameterType="string">
+    /* com.spring.web.common.login.mapper.LoginReadMapper.getUserDetails */
+    SELECT 	ADMINID
+        ,ENCRYPT_YN
+        ,ENCODEPW
+        ,ENCRYPT_PW
+        ,USEYN
+        ,NAME
+        ,ADMINMEMO
+        ,RDATE
+        ,0 AS ADMINIDX
+    FROM 	T_ADMINS
+    WHERE 	ADMINID = #{username}
+             AND 	USEYN = '1'
+  </select>
+</mapper>
